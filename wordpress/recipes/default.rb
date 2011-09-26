@@ -80,7 +80,9 @@ execute "create #{node['wordpress']['db']['database']} database" do
     m = Mysql.new("localhost", "root", node['mysql']['server_root_password'])
     m.list_dbs.include?(node['wordpress']['db']['database'])
   end
-  notifies :create, "ruby_block[save node data]", :immediately
+  unless Chef::Config[:solo]
+    notifies :create, "ruby_block[save node data]", :immediately
+  end
 end
 
 # save node data after writing the MYSQL root password, so that a failed chef-client run that gets this far doesn't cause an unknown password to get applied to the box without being saved in the node data.

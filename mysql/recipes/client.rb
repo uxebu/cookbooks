@@ -51,6 +51,12 @@ if platform?(%w{ debian ubuntu redhat centos fedora suse })
     action :install
   end
 
+  if platform?(%w{ ubuntu })
+    # additionally to the mysql-lib we need to install the gem
+    gem_package "mysql" do
+	action :install
+  end
+
 else
 
   gem_package "mysql" do

@@ -45,3 +45,11 @@ status /etc/openvpn/openvpn-status.log
 log-append  <%= node["openvpn"]["log"] %>
 verb 1  # don't spam the log with messages.
 mute 10 # suppress identical messages > 10 occurances.
+
+# other
+topology subnet
+keepalive 10 120
+client-to-client
+
+# other subnet
+push "route 10.0.100.0 255.255.255.0"

@@ -51,5 +51,9 @@ topology subnet
 keepalive 10 120
 client-to-client
 
-# other subnet
+# hub's vm subnet
 push "route 10.0.100.0 255.255.255.0"
+
+# dns for vm hostnames
+push "dhcp-option DNS 10.0.100.1"
+push "dhcp-option DOMAIN ux"

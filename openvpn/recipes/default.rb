@@ -36,7 +36,7 @@ directory "/etc/openvpn/easy-rsa" do
   mode 0755
 end
 
-%w{openssl.cnf pkitool vars Rakefile}.each do |f|
+%w{openssl.cnf pkitool vars Rakefile revoke-full}.each do |f|
   template "/etc/openvpn/easy-rsa/#{f}" do
     source "#{f}.erb"
     owner "root"
@@ -107,6 +107,14 @@ bash "openvpn-server-key" do
       -extensions server -md sha1 -config #{key_dir}/openssl.cnf
   EOF
   not_if { ::File.exists?("#{key_dir}/server.crt") }
+end
+
+bash "openvpn-crl-pem" do
+  environment("KEY_CN" => "server")
+  cod <<-EOF
+    openssl ca -gencrl -out /etc/openvpn/crl.pem -config #{key_dir}/openssl.cnf 
+  EOF
+  not_if { ::File.exists?("/etc/openvpn/crl.pem") }
 end
 
 template "/etc/openvpn/server.conf" do

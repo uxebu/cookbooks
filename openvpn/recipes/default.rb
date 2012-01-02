@@ -111,7 +111,7 @@ end
 
 bash "openvpn-crl-pem" do
   environment("KEY_CN" => "server")
-  cod <<-EOF
+  code <<-EOF
     openssl ca -gencrl -out /etc/openvpn/crl.pem -config #{key_dir}/openssl.cnf 
   EOF
   not_if { ::File.exists?("/etc/openvpn/crl.pem") }

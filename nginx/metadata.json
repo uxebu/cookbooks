@@ -1,0 +1,300 @@
+{
+  "conflicting": {
+  },
+  "maintainer": "Opscode, Inc.",
+  "long_description": "",
+  "recipes": {
+    "nginx::source": "Installs nginx from source and sets up configuration with Debian apache style with sites-enabled/sites-available",
+    "nginx": "Installs nginx package and sets up configuration with Debian apache style with sites-enabled/sites-available"
+  },
+  "providing": {
+  },
+  "suggestions": {
+  },
+  "groupings": {
+  },
+  "platforms": {
+    "oracle": ">= 0.0.0",
+    "ubuntu": ">= 0.0.0",
+    "debian": ">= 0.0.0",
+    "fedora": ">= 0.0.0",
+    "amazon": ">= 0.0.0",
+    "scientific": ">= 0.0.0",
+    "redhat": ">= 0.0.0",
+    "centos": ">= 0.0.0"
+  },
+  "license": "Apache 2.0",
+  "maintainer_email": "cookbooks@opscode.com",
+  "attributes": {
+    "nginx/worker_connections": {
+      "required": "optional",
+      "recipes": [
+
+      ],
+      "display_name": "Nginx Worker Connections",
+      "default": "1024",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "description": "Number of connections per worker",
+      "type": "string"
+    },
+    "nginx/worker_processes": {
+      "required": "optional",
+      "recipes": [
+
+      ],
+      "display_name": "Nginx Worker Processes",
+      "default": "1",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "description": "Number of worker processes",
+      "type": "string"
+    },
+    "nginx/gzip_types": {
+      "required": "optional",
+      "recipes": [
+
+      ],
+      "display_name": "Nginx Gzip Types",
+      "default": [
+        "text/plain",
+        "text/css",
+        "application/x-javascript",
+        "text/xml",
+        "application/xml",
+        "application/xml+rss",
+        "text/javascript",
+        "application/javascript",
+        "application/json"
+      ],
+      "calculated": false,
+      "choice": [
+
+      ],
+      "description": "Supported MIME-types for gzip",
+      "type": "array"
+    },
+    "nginx/binary": {
+      "required": "optional",
+      "recipes": [
+
+      ],
+      "display_name": "Nginx Binary",
+      "default": "/usr/sbin/nginx",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "description": "Location of the nginx server binary",
+      "type": "string"
+    },
+    "nginx/keepalive_timeout": {
+      "required": "optional",
+      "recipes": [
+
+      ],
+      "display_name": "Nginx Keepalive Timeout",
+      "default": "65",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "type": "string"
+    },
+    "nginx/gzip_comp_level": {
+      "required": "optional",
+      "recipes": [
+
+      ],
+      "display_name": "Nginx Gzip Compression Level",
+      "default": "2",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "description": "Amount of compression to use",
+      "type": "string"
+    },
+    "nginx/gzip_http_version": {
+      "required": "optional",
+      "recipes": [
+
+      ],
+      "display_name": "Nginx Gzip HTTP Version",
+      "default": "1.0",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "description": "Version of HTTP Gzip",
+      "type": "string"
+    },
+    "nginx/gzip_proxied": {
+      "required": "optional",
+      "recipes": [
+
+      ],
+      "display_name": "Nginx Gzip Proxied",
+      "default": "any",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "description": "Whether gzip is proxied",
+      "type": "string"
+    },
+    "nginx/gzip": {
+      "required": "optional",
+      "recipes": [
+
+      ],
+      "display_name": "Nginx Gzip",
+      "default": "on",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "description": "Whether gzip is enabled",
+      "type": "string"
+    },
+    "nginx/disable_access_log": {
+      "required": "optional",
+      "recipes": [
+
+      ],
+      "display_name": "Disable Access Log",
+      "default": "false",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "type": "string"
+    },
+    "nginx/keepalive": {
+      "required": "optional",
+      "recipes": [
+
+      ],
+      "display_name": "Nginx Keepalive",
+      "default": "on",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "description": "Whether to enable keepalive",
+      "type": "string"
+    },
+    "nginx/log_dir": {
+      "required": "optional",
+      "recipes": [
+
+      ],
+      "display_name": "Nginx Log Directory",
+      "default": "/var/log/nginx",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "description": "Location for nginx logs",
+      "type": "string"
+    },
+    "nginx/default_site_enabled": {
+      "required": "optional",
+      "recipes": [
+
+      ],
+      "display_name": "Default site enabled",
+      "default": "true",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "type": "string"
+    },
+    "nginx/types_hash_bucket_size": {
+      "required": "optional",
+      "recipes": [
+
+      ],
+      "display_name": "Nginx Types Hash Bucket Size",
+      "default": "64",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "type": "string"
+    },
+    "nginx/user": {
+      "required": "optional",
+      "recipes": [
+
+      ],
+      "display_name": "Nginx User",
+      "default": "www-data",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "description": "User nginx will run as",
+      "type": "string"
+    },
+    "nginx/types_hash_max_size": {
+      "required": "optional",
+      "recipes": [
+
+      ],
+      "display_name": "Nginx Types Hash Max Size",
+      "default": "2048",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "type": "string"
+    },
+    "nginx/server_names_hash_bucket_size": {
+      "required": "optional",
+      "recipes": [
+
+      ],
+      "display_name": "Nginx Server Names Hash Bucket Size",
+      "default": "64",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "type": "string"
+    },
+    "nginx/dir": {
+      "required": "optional",
+      "recipes": [
+
+      ],
+      "display_name": "Nginx Directory",
+      "default": "/etc/nginx",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "description": "Location of nginx configuration files",
+      "type": "string"
+    }
+  },
+  "replacing": {
+  },
+  "recommendations": {
+    "yum": ">= 0.0.0",
+    "runit": ">= 0.0.0",
+    "bluepill": ">= 0.0.0"
+  },
+  "dependencies": {
+    "ohai": ">= 1.1.0",
+    "build-essential": ">= 0.0.0"
+  },
+  "version": "1.0.2",
+  "description": "Installs and configures nginx",
+  "name": "nginx"
+}

@@ -1,9 +1,8 @@
 #
 # Cookbook Name:: users
-# Recipe:: sysadmins
+# Recipe:: default
 #
-# Copyright 2011, Eric G. Wolfe
-# Copyright 2009-2011, Opscode, Inc.
+# Copyright 2009-2012, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,9 +17,4 @@
 # limitations under the License.
 #
 
-# Searches data bag "users" for groups attribute "sysadmin".
-# Places returned users in Unix group "sysadmin" with GID 2300.
-users_manage "sysadmin" do
-  group_id 2300
-  action [ :remove, :create ]
-end
+# Empty default recipe for including LWRPs.

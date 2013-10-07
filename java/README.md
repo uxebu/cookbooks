@@ -33,9 +33,10 @@ Chef 0.10.10+ and Ohai 6.10+ for `platform_family` use.
 ## Platform
 
 * Debian, Ubuntu
-* CentOS, Red Hat, Fedora, Scientific, Amazon
+* CentOS, Red Hat, Fedora, Scientific, Amazon, XenServer
 * ArchLinux
 * FreeBSD
+* SmartOS
 * Windows
 
 This cookbook includes cross-platform testing support via
@@ -73,10 +74,15 @@ the .tar.gz.
 * `node['java']['windows']['package_name']` - The package name used by
   windows_package to check in the registry to determine if the install
   has already been run
+* `node['java']['windows']['checksum']` - The checksum for the package to
+  download on Windows machines (default is nil, which does not perform
+  checksum validation)
 * `node['java']['ibm']['url']` - The URL which to download the IBM
   JDK/SDK. See the `ibm` recipe section below.
 * `node['java']['ibm']['accept_ibm_download_terms']` - Indicates that
   you accept IBM's EULA (for `java::ibm`)
+* `node['java']['accept_license_agreement']` - Indicates that you accept
+  the EULA for openjdk package installation.
 
 Recipes
 =======
@@ -95,6 +101,11 @@ Oracle. See notes on the `oracle` recipe below.
 
 This recipe installs the `openjdk` flavor of Java. It also uses the
 `alternatives` system on RHEL/Debian families to set the default Java.
+
+On platforms such as SmartOS that require the acceptance of a license
+agreement during package installation, set
+`node['java']['accept_license_agreement']` to true in order to indicate
+that you accept the license.
 
 ## oracle
 
@@ -120,6 +131,13 @@ it as the default. This can be useful if you have applications on the
 same machine that require different versions of the JVM.
 
 This recipe operates in a similar manner to `java::oracle`.
+
+## oracle_rpm
+
+This recipe installs the Oracle JRE or JDK provided by a custom YUM
+repositories.
+It also uses the `alternatives` system on RHEL families to set
+the default Java.
 
 ## windows
 

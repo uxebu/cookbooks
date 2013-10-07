@@ -22,7 +22,7 @@ default['java']['remove_deprecated_packages'] = false
 
 # default jdk attributes
 default['java']['install_flavor'] = "openjdk"
-default['java']['jdk_version'] = '6'
+default['java']['jdk_version'] = '7'
 default['java']['arch'] = kernel['machine'] =~ /x86_64/ ? "x86_64" : "i586"
 default['java']['openjdk_packages'] = []
 default['java']['accept_license_agreement'] = false
@@ -52,6 +52,8 @@ else
   default['java']['java_home'] = "/usr/lib/jvm/default-java"
   default['java']['openjdk_packages'] = ["openjdk-#{node['java']['jdk_version']}-jdk"]
 end
+
+puts node['java']['jdk_version']
 
 case node['java']['install_flavor']
 when 'ibm'
